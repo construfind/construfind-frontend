@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
+import cpfLogin from '../../assets/cpf-login.png';
+import senhaLogin from '../../assets/senha-login.png';
 
 export default function Login() {
     const [isContratante, setIsContratante] = useState(true);
@@ -9,7 +12,6 @@ export default function Login() {
     useEffect(() => {
         setCorBotaoContratante(isContratante ? '#FBFBFB' : '#F0D22F');
         setCorBotaoPrestador(isContratante ? '#F0D22F' : '#FBFBFB');
-        console.log('USE EFFECT');
     }, [isContratante]);
 
     return <SafeAreaView style={estilos.tela}>
@@ -28,6 +30,17 @@ export default function Login() {
                     <Text style={estilos.texto}>CONTRATANTE</Text>
                 </TouchableOpacity>
             </View>
+            <Text style={estilos.texto01}>Bem-vindo!</Text>
+            <Text style={estilos.texto02}>LOGIN</Text>
+            <View style={estilos.campo01}>
+                <Image source={cpfLogin} style={estilos.imagem} />
+                <TextInput style={estilos.campo} selectTextOnFocus />
+            </View>
+            <View style={estilos.campo01}>
+                <Image source={senhaLogin} style={estilos.imagem} />
+                <TextInput style={estilos.campo} selectTextOnFocus />
+            </View>
+            <Text style={estilos.texto02}>Esqueci minha senha</Text>
         </ScrollView>
     </SafeAreaView >
 }
@@ -54,4 +67,45 @@ const estilos = StyleSheet.create({
         lineHeight: 24,
         flex: 1,
     },
+    texto01: {
+        alignSelf: "center",
+        textAlign: "center",
+        fontWeight: "bold",
+        fontSize: 30,
+        color: "#000",
+        marginTop: 30,
+        marginLeft: 35,
+        marginRight: 35,
+    },
+    texto02: {
+        alignSelf: "center",
+        textAlign: "center",
+        fontWeight: "400",
+        fontSize: 16,
+        color: "#6A6A6A",
+        marginTop: 30,
+        marginHorizontal: 35,
+        marginBottom: 20,
+    },
+    campo: {
+        height: 52,
+        backgroundColor: "#FFF",
+        fontSize: 20,
+        borderRadius: 12
+    },
+    campo01: {
+        flexDirection: "row",
+        height: 54,
+        lineHeight: 20,
+        marginHorizontal: 20,
+        marginBottom: 10,
+        borderWidth: 1,
+        borderRadius: 12,
+        borderColor: "#000",
+    },
+    imagem: {
+        alignSelf: "center",
+        marginLeft: 16,
+        marginRight: 14,
+    }
 })
