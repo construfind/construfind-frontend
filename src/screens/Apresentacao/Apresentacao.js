@@ -23,6 +23,7 @@ export default function Apresentacao() {
 const estilos = StyleSheet.create({
     tela: {
         flex: 1,
+        backgroundColor: '#fffff3',
     },
     logo: {
         alignSelf: 'center',

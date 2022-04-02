@@ -5,7 +5,7 @@ import cpfLogin from '../../assets/cpf-login.png';
 import senhaLogin from '../../assets/senha-login.png';
 import construfindFooter from '../../assets/construfind-footer.png';
 
-export default function Login() {
+export default function Cadastro() {
     const [isContratante, setIsContratante] = useState(true);
     const [corBotaoPrestador, setCorBotaoPrestador] = useState('#F0D22F');
     const [corBotaoContratante, setCorBotaoContratante] = useState('#FBFBFB');
@@ -17,6 +17,7 @@ export default function Login() {
 
     return <SafeAreaView style={estilos.tela}>
         <ScrollView>
+            <Image source={senhaLogin} style={estilos.imagem} />
             <View style={estilos.botoesPrestadorContratante}>
                 <TouchableOpacity
                     style={[estilos.botaoPrestador, { backgroundColor: corBotaoPrestador }]}
@@ -42,7 +43,7 @@ export default function Login() {
                 <TextInput style={estilos.campo} selectTextOnFocus />
             </View>
             <TouchableOpacity>
-                <Text style={estilos.esqueci}>Esqueci minha senha</Text>
+                <Text style={estilos.esqueci}>Esqueci minha senhaaaaa</Text>
             </TouchableOpacity>
             <TouchableOpacity style={estilos.botao} onPress={() => { }}>
                 <Text style={estilos.textoBotao}>ENTRAR</Text>
