@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import construfindLogo from '../../assets/construfind-logo.png';
 import welcomeImage from '../../assets/welcome-image.png';
@@ -13,8 +13,10 @@ export default function Apresentacao({ navigation }) {
             <Text style={estilos.texto01}>Conectando quem precisa com quem sabe fazer!</Text>
             <Text style={estilos.texto02}>Contratar ou mostrar serviços de forma simples e objetiva.</Text>
             <TouchableOpacity style={estilos.botao} onPress={() => navigation.navigate('Login')}>
-                <Text style={estilos.textoBotao}>Vamos começar</Text>
-                <Image source={setaDireita} style={estilos.seta} />
+                <View style={estilos.textoSeta}>
+                    <Text style={estilos.textoBotao}>Vamos começar</Text>
+                    <Image source={setaDireita} style={estilos.seta} />
+                </View>
             </TouchableOpacity>
         </ScrollView>
     </SafeAreaView>
@@ -27,10 +29,11 @@ const estilos = StyleSheet.create({
     },
     logo: {
         alignSelf: 'center',
+        marginTop: '3.5%',
     },
     ImagemWelcome: {
         alignSelf: 'center',
-        marginTop: 35,
+        marginTop: '6.7%',
     },
     texto01: {
         alignSelf: "center",
@@ -38,27 +41,31 @@ const estilos = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 24,
         color: "#000",
-        marginTop: 30,
-        marginLeft: 35,
-        marginRight: 35,
+        marginTop: '8%',
+        marginHorizontal: '9.3%'
     },
     texto02: {
         alignSelf: "center",
         textAlign: "center",
         fontSize: 16,
         color: "#6A6A6A",
-        marginTop: 30,
+        marginTop: '10%',
         marginHorizontal: 35,
     },
     botao: {
         backgroundColor: "#F0D22F",
         borderRadius: 12,
-        marginHorizontal: 57,
-        marginVertical: 32,
+        marginHorizontal: '15%',
+        marginVertical: '15%',
         paddingVertical: 16,
         paddingHorizontal: 60,
         flexDirection: 'row',
-        alignContent: "center"
+        alignContent: "center",
+        alignSelf: 'center'
+    },
+    textoSeta: {
+        alignSelf: 'center',
+        flexDirection: 'row',
     },
     textoBotao: {
         fontSize: 16,
