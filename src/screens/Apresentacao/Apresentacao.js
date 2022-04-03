@@ -5,14 +5,14 @@ import construfindLogo from '../../assets/construfind-logo.png';
 import welcomeImage from '../../assets/welcome-image.png';
 import setaDireita from '../../assets/seta-direita.png';
 
-export default function Apresentacao() {
+export default function Apresentacao({ navigation }) {
     return <SafeAreaView style={estilos.tela}>
         <ScrollView>
             <Image source={construfindLogo} style={estilos.logo} />
             <Image source={welcomeImage} style={estilos.ImagemWelcome} />
             <Text style={estilos.texto01}>Conectando quem precisa com quem sabe fazer!</Text>
             <Text style={estilos.texto02}>Contratar ou mostrar serviços de forma simples e objetiva.</Text>
-            <TouchableOpacity style={estilos.botao} onPress={() => { }}>
+            <TouchableOpacity style={estilos.botao} onPress={() => navigation.navigate('Login')}>
                 <Text style={estilos.textoBotao}>Vamos começar</Text>
                 <Image source={setaDireita} style={estilos.seta} />
             </TouchableOpacity>
