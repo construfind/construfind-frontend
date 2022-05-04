@@ -7,26 +7,16 @@ on:
       - master
       - dev
 
-jobs:
-  install:
-    name: Install
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: actions/setup-node@master
-      - uses: c-hive/gha-yarn-cache@v1
-
-      - name: Install node modules
-        run: |
-          yarn install
-          
+jobs:          
   build-android:
-    needs: install
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
           
+      - name: Install node modules
+        run: |
+          yarn install
+
       - name: Make Gradlew Executable
         run: cd android && chmod +x ./gradlew
 
