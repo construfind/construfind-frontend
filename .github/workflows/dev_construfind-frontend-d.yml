@@ -1,14 +1,14 @@
 name: Continuous Integration
 
 on:
-  pull_request:
+  push:
     branches:
       - master
       - dev
 
 jobs:
-  test:
-    name: Tests
+  install:
+    name: Install
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -20,10 +20,25 @@ jobs:
         run: |
           yarn install
           
-      - name: Run CI with Lefthook
+  build-android:
+    needs: install
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v2
+      
+      - name: Install npm dependencies
         run: |
-          yarn lefthook run ci-hook
+          npm install
           
-      - name: Run test
+      - name: Make Gradlew Executable
+        run: cd android && chmod +x ./gradlew
+
+      - name: Build Android App APK
         run: |
-          yarn test-ci
+          cd android && ./gradlew assembleRelease
+      
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/
