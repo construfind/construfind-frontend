@@ -5,7 +5,7 @@ import cpfLogin from '../../assets/cpf-login.png';
 import senhaLogin from '../../assets/senha-login.png';
 import construfindFooter from '../../assets/construfind-footer.png';
 
-export default function Login() {
+export default function Login({ navigation }) {
     const [isContratante, setIsContratante] = useState(true);
     const [corBotaoPrestador, setCorBotaoPrestador] = useState('#F0D22F');
     const [corBotaoContratante, setCorBotaoContratante] = useState('#FBFBFB');
@@ -49,7 +49,7 @@ export default function Login() {
             </TouchableOpacity>
             <View style={estilos.criarConta}>
                 <Text style={estilos.textoNovoUsuario}>Novo usuário?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
                     <Text style={estilos.textoCrieSuaConta}>Crie sua Conta</Text>
                 </TouchableOpacity>
             </View>
@@ -117,6 +117,7 @@ const estilos = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 12,
         borderColor: "#6A6A6A",
+        backgroundColor: "#FFF",
     },
     imagem: {
         alignSelf: "center",
