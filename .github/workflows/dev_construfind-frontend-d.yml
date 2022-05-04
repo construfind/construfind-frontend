@@ -1,4 +1,3 @@
-
 name: Continuous Integration
 
 on:
@@ -36,6 +35,6 @@ jobs:
           appName: ConstruFind/construfind-android
           token: ${{secrets.APP_CENTER_TOKEN}}
           group: Collaborators
-          file: app/build/outputs/apk/release/app-release.apk
+          file: android/app/build/outputs/apk/release/app-release.apk
           notifyTesters: false
           debug: false
