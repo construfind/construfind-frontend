@@ -34,7 +34,7 @@ jobs:
         with:
           appName: ConstruFind/construfind-android
           token: ${{secrets.APP_CENTER_TOKEN}}
-          group: Collaborators
+          group: ConstrufindTeam
           file: android/app/build/outputs/apk/release/app-release.apk
           notifyTesters: false
           debug: false
