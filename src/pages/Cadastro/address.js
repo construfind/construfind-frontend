@@ -40,17 +40,10 @@ const CadastroEndereco = ({ navigation, route, options, back }) => {
 
   useEffect(() => {
     const subscribe = NetInfo.addEventListener(({ isConnected }) => setIsOnline(isConnected))
-
     return () => {
       subscribe()
     }
   }, [])
-
-  useEffect(() =>{
-    if(cdCEP.length == 8){      
-      handleAddress()
-    }
-  }, [cdCEP])
 
   const setAddressFields = (data) =>{
     setDsLogradouro(data.logradouro);
@@ -164,7 +157,7 @@ const CadastroEndereco = ({ navigation, route, options, back }) => {
           console.log("Sucesso: ", data);
           showMessage({
             message: "Sucesso!",
-            description: "Seja bem vindo, " + data.data.userInfo.nome,
+            description: "Seja bem vindo(a) a nossa plataforma, você já pode começar a utilizar as funcionalidades!",
             type: "success",
             duration: 2350,
             icon: "auto"
@@ -201,14 +194,15 @@ const CadastroEndereco = ({ navigation, route, options, back }) => {
                     icon={"map-marker"} 
                     placeholder={"CEP"} 
                     onChangeText={(masked, unmasked) => {
-                                    setCdCEP(unmasked);
+                                    setCdCEP(masked);
                                     if(unmasked.length == 8){
                                       Keyboard.dismiss();
                                     }
                                  }}
                     value={cdCEP}
                     maxLength={9}
-                    keyboardType={"numeric"}/>
+                    keyboardType={"numeric"}
+                    onBlur={() => handleAddress()}/>
 
         <InputAuth  icon={"road-variant"} 
                     placeholder={"Rua"} 

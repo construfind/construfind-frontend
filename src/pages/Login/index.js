@@ -6,12 +6,7 @@ import NetInfo from '@react-native-community/netinfo';
 import { Masks } from 'react-native-mask-input';
 import { showMessage, hideMessage } from "react-native-flash-message";
 
-import FooterAuth from '../../components/FooterAuth';
-import Container from '../../components/Container';
-import InputAuth from '../../components/InputAuth';
-import ButtonAuth from '../../components/Button';
-import { Loader } from '../../components';
-import { Images, COLORS, FONTS } from '../../assets/constants';
+import { FooterAuth, Container, InputAuth, ButtonAuth, Loader} from '../../components';
 import { api } from '../../services/api';
 import AuthenticateActions from '../../store/ducks/authenticate';
 import { ValidaResponse } from '../../utils/ResponseValidators';
@@ -51,7 +46,7 @@ const Login = ({ navigation, route, options, back }) => {
         description: "CPF inválido, digite novamente.",
         type: "danger",
         duration: 2350,
-icon: "auto"
+        icon: "auto"
       });
       return null;
     }
@@ -73,19 +68,25 @@ icon: "auto"
     if (isOnline) {
       await api
         .post(url, body)
-        .then(async (data) => {
+        .then(async ({
+                      data: {
+                          userInfo,
+                          accessToken
+                        }                      
+                    }) => {
           showMessage({
             message: "Sucesso!",
-            description: "Seja bem vindo novamente, " + data.data.userInfo.nome,
+            description: "Seja bem vindo novamente, " + userInfo.nomeCompleto,
             type: "success",
             duration: 2350,
             icon: "auto"
           });
-          dispatch(AuthenticateActions.addUser(data))
+          dispatch(AuthenticateActions.addUser(userInfo))
+          dispatch(AuthenticateActions.addToken(accessToken))
           navigation.navigate('Inicio')
         })
         .catch(err => {
-
+            console.log("Error login: ", err);
             showMessage({
               message: "Erro ao realizar login!",
               description: ValidaResponse(err.response.data.errors),
