@@ -4,8 +4,9 @@ const { width, height } = Dimensions.get('window')
 
 const COLORS = {
   // base colors
-  primary: '#FFC500',
+  primary: '#F0D22F',
   secondary: '#323438',
+  background: 'rgb(251, 251, 251)',
 
   // colors
   black: '#1E1F20',
@@ -56,7 +57,21 @@ const FONTS = {
   bold: 'Poppins-Bold',
   light: 'Poppins-Light',
   medium: 'Poppins-Medium',
-  regular: 'Poppins-Regular'
+  black: 'Poppins-Black',
+  blackItalic: 'Poppins-BlackItalic',
+  boldItalic: 'Poppins-BoldItalic',
+  extraBold: 'Poppins-ExtraBold',
+  extraBoldItalic: 'Poppins-ExtraBoldItalic',
+  extraLight: 'Poppins-ExtraLight',
+  extraLightItalic: 'Poppins-ExtraLightItalic',
+  italic: 'Poppins-Italic',
+  lightItalic: 'Poppins-LightItalic',
+  mediumItalic: 'Poppins-MediumItalic',
+  regular: 'Poppins-Regular',
+  semiBold: 'Poppins-SemiBold',
+  semiBoldItalic: 'Poppins-SemiBoldItalic',
+  thin: 'Poppins-Thin',
+  thinItalic: 'Poppins-ThinItalic'
 }
 
 export { COLORS, SIZES, FONTS }
