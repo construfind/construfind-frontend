@@ -154,7 +154,6 @@ const CadastroEndereco = ({ navigation, route, options, back }) => {
     if (isOnline) {
       await api.post(url, body)
         .then(async (data) => {
-          console.log("Sucesso: ", data);
           showMessage({
             message: "Sucesso!",
             description: "Seja bem vindo(a) a nossa plataforma, você já pode começar a utilizar as funcionalidades!",

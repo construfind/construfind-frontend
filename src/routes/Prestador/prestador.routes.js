@@ -3,7 +3,7 @@ import { LogBox, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Perfil from '../../pages/Perfil';
-import Inicio from '../../pages/Contratante/Inicio';
+import Inicio from '../../pages/Prestador/Inicio';
 import { TabNavigatorCustom, StyledIcon, StyledText } from '../../components';
 
 LogBox.ignoreLogs([
@@ -12,7 +12,7 @@ LogBox.ignoreLogs([
 
 const Tab = createBottomTabNavigator();
 
-const ContratanteRoutes = () => {
+const PrestadorRoutes = () => {
   return (
     <TabNavigatorCustom initialRouteName={"Inicio"}>
 
@@ -52,4 +52,4 @@ const ContratanteRoutes = () => {
   );
 };
 
-export default ContratanteRoutes;
+export default PrestadorRoutes;

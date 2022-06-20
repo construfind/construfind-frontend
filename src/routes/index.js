@@ -1,14 +1,24 @@
 import React from "react";
 import AuthRoutes from "./auth.routes";
 import ContratanteRoutes from "./Contratante/contratante.routes";
-import { useDispatch, useSelector } from 'react-redux';
+import PrestadorRoutes from "./Prestador/prestador.routes";
+import { useSelector } from 'react-redux';
 
 
 const Routes = () =>{
-  const token = useSelector(({ authenticate: { token } }) => token)  
-  console.log("LOGADO: ", token);
-  
-  return token ? <ContratanteRoutes /> : <AuthRoutes />
+  const { tipoUsuario } = useSelector(({ authenticate: { user } }) => user);
+  const token = useSelector(({ authenticate: { token } }) => token)
+
+  if(token){
+    if(tipoUsuario === "Contratante"){
+      return <ContratanteRoutes />;
+    }
+    else if (tipoUsuario === "Prestador"){
+      return <PrestadorRoutes />;
+    }
+  }else{
+    return <AuthRoutes />;
+  }  
 }
 
 export default Routes;

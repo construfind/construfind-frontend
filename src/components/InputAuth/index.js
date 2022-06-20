@@ -6,12 +6,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const InputAuth = (props) => {
   return (
-    <Input>
+    <Input style={{height: props.height}}>
       <IconStyled name={props.icon} size={20} color="#6A6A6A"  />
 
-      <MaskInput 
+      <MaskedStyle 
         underlineColorAndroid={'transparent'}
-        style={MaskedStyle}
         {...props}/>
 
     </Input>
@@ -34,9 +33,11 @@ const IconStyled = styled(Icon)`
   margin: auto 0% auto 5%;
 `;
 
-const MaskedStyle = StyleSheet.create({
-  fontFamily: 'Poppins',
-  width: '100%'
-})
+const MaskedStyle = styled(MaskInput)`
+  font-family: 'Poppins';
+  width: 80%;
+  align-self: flex-start;
+  text-align: left;
+`;
 
 export default InputAuth;

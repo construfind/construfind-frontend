@@ -100,8 +100,6 @@ const Cadastro = ({ navigation, route, options, back }) => {
       cdConfirmarSenha: cdConfirmarSenha
     }
 
-    console.log(data)
-
     dispatch(RegisterActions.addUserRegister(data))
     navigation.navigate('CadastroEndereco')
 
