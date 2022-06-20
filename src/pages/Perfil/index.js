@@ -9,12 +9,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import NetInfo from '@react-native-community/netinfo';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import { Container, InputAuth, Loader } from '../../../components';
-import load from '../../../assets/images/Loading.gif';
-import { FONTS, COLORS } from '../../../assets/constants';
-import { ViaCepHook } from '../../../utils/ViaCepIntegration';
-import AuthenticateActions from '../../../store/ducks/authenticate';
-import { api } from '../../../services/api';
+import { Container, InputAuth, Loader } from '../../components';
+import load from '../../assets/images/Loading.gif';
+import { FONTS, COLORS } from '../../assets/constants';
+import { ViaCepHook } from '../../utils/ViaCepIntegration';
+import AuthenticateActions from '../../store/ducks/authenticate';
+import { api } from '../../services/api';
 
 const Perfil = ({ navigation }) => {
   SplashScreen.hide();
@@ -65,8 +65,6 @@ const Perfil = ({ navigation }) => {
 
   const getUserData = async () =>{
     const url = 'api/Usuario/user-read/' + cpf;
-
-    console.log("User url: ", url);
 
     setIsLoading(true)
 
@@ -162,7 +160,6 @@ const Perfil = ({ navigation }) => {
       }, 
       telefone: cdTelefone 
     }
-    console.log("Alterar data: ", body);
 
     setIsLoading(true)
 
@@ -231,6 +228,9 @@ const Perfil = ({ navigation }) => {
 
       <Modal testID={'modalAlterarUsuario'}
              isVisible={modalVisible}
+             style={{
+              position:'absolute'
+             }}
              onBackdropPress={() => setModalVisible(false)}>
 
         <View style={styles.modalView}>

@@ -11,7 +11,8 @@ const COLORS = {
   // colors
   black: '#1E1F20',
   white: '#FFFFFF',
-  blue: '#00CCFF',
+  blue: '#1493b3',
+  red: '#cf3030',
   green: '#26E096',
   gray: '#94989C',
   textColor: '#323438',

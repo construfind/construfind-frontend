@@ -17,8 +17,6 @@ const FooterNavigator = (props) => {
   const [option4Color, setOption4Color] = useState('#6A6A6A');
 
   useEffect(() => {
-    console.log("Nome pagina: ", route.name);
-    console.log("Props pagina: ", props);
 
     if(route.name == props.navigate1){
       setOption1Color('#F0D22F');
