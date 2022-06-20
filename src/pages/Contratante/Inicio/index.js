@@ -139,8 +139,7 @@ const Inicio = () => {
                       onChangeText={setNmlocal}
                       value={nmLocal}
                       maxLength={100} 
-                      editable={true}
-                      keyboardType={"numeric"}/>
+                      editable={true}/>
 
           <InputAuth  icon={"format-list-bulleted-type"} 
                       placeholder={"Tipo do Servico"} 

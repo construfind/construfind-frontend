@@ -181,30 +181,29 @@ const ItemServico = ( props ) => {
           
           <Icon size={35} name={"close"} style={styles.CloseIcon} onPress={() => setIsModalVisible(false)}/>
 
-          <InputAuth  icon={"road-variant"} 
+          <InputAuth  icon={"subtitles-outline"} 
                       placeholder={"Titulo"} 
                       onChangeText={setNmTitulo}
                       value={nmTitulo}
                       maxLength={100} 
                       editable={true}/>        
 
-          <InputAuth  icon={"numeric"} 
-                      placeholder={"Numero"} 
+          <InputAuth  icon={"home-city"} 
+                      placeholder={"Local"} 
                       onChangeText={setNmlocal}
                       value={nmLocal}
                       maxLength={100} 
-                      editable={true}
-                      keyboardType={"numeric"}/>
+                      editable={true}/>
 
-          <InputAuth  icon={"home-city"} 
-                      placeholder={"Bairro"} 
+          <InputAuth  icon={"format-list-bulleted-type"} 
+                      placeholder={"Tipo do Servico"} 
                       onChangeText={setNmTipoServico}
                       value={nmTipoServico}
                       maxLength={100} 
                       editable={true}/>
 
-          <InputAuth  icon={"city"} 
-                      placeholder={"Cidade"} 
+          <InputAuth  icon={"form-textbox"} 
+                      placeholder={"Descrição"} 
                       onChangeText={setDsServico}
                       value={dsServico}
                       maxLength={1000} 
