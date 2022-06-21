@@ -16,7 +16,7 @@ const Inicio = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingDataList, setIsLoadingDataList] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [dataServicos, setDataServicos] = useState([{}]);
+  const [dataServicos, setDataServicos] = useState(null);
   const token = useSelector(({ authenticate: { token } }) => token);
   const { nomeCompleto } = useSelector(({ authenticate: { user } }) => user);
 
@@ -41,7 +41,8 @@ const Inicio = () => {
         setDataServicos(data);
       })
       .catch((err) => {
-          console.log("Error Buscar: ", err);
+        setDataServicos(null);
+        console.log("Error Buscar: ", err);
       })
       .finally(() => {setIsLoading(false); setIsLoadingDataList(false)})
   };

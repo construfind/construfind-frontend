@@ -6,7 +6,7 @@ import { COLORS, FONTS } from '../../assets/constants';
 import ItemServicoPrestador from '../ItemServicoPrestador';
 
 const HeaderList = () =>{
-  return (    
+  return (
     <TitleAdd>
       <TitleText>Serviços disponíveis</TitleText>
     </TitleAdd>
@@ -40,8 +40,9 @@ const ServicosPrestador = ( props ) => {
 
 const Container = styled.View`
   width: 90%;
-  align-self: center;
   height: 40%;
+  align-self: center;
+  border-radius: 20;
 `;
 
 const TitleText = styled.Text`
@@ -57,7 +58,6 @@ const ServiceList = styled.FlatList`
 
 const TitleAdd = styled.View`
   flex-direction: column;
-  height: 50;
   justify-content: center;
   background-color: ${COLORS.background};
 `;

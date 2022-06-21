@@ -92,24 +92,26 @@ const ItemServicoPrestador = ( props ) => {
             <ImagemMini source={load} />
           </Fotos>
         </ColunaInfos>
+
       </ConteudoItem>
       <ConteudoBotoes>
         <ButtonApply onPress={() => alertServiceApply()}>
             <ButtonText>CANDIDATAR-SE</ButtonText>
         </ButtonApply>
       </ConteudoBotoes>
-
     </Container>
   );
 }
 
 const ButtonApply = styled.TouchableOpacity`
-  align-self: baseline;
+  justify-content: center;
+  align-content: center;
   width: 50%;
   background-color: ${COLORS.primary};
-  align-items: center;
+  height: 40;
   border-radius: 20;
-  height: 45px;
+  margin-top: auto;
+  margin-bottom: auto;
 `;
 
 const ButtonText = styled.Text`  
@@ -117,42 +119,30 @@ const ButtonText = styled.Text`
   font-size: 18;
   color: #0C0C0C;
   align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
 `;
 
 const Container = styled.View`
-  flex: 1;
-  width: 100%;
-  align-self: center;
+  border-radius: 20;
+  padding: 2%;
   background-color: ${COLORS.white};
-  border-radius: 15;
-  padding-top: 3%;
-  padding-right: 3%;
-  padding-bottom: 3%;
-  padding-left: 3%;
-  flex-direction: column;
 `;
 
 const NomeTipo = styled.View`
-  flex-direction: column;
 `;
 
 const Avaliacao = styled.View`
-justify-content: space-between;
+  justify-content: space-between;
   flex-direction: row;
 `;
 
 const Fotos = styled.View`
   flex-direction: row;
-  margin-top: 4%;
   justify-content: space-between;
 `;
 
 const ColunaInfos = styled.View`
-  width: 65%;
-  flex-direction: column;
-  padding: 3%;
+  width: 60%;
+  margin: auto;
 `;
 
 const NomeContratante = styled.Text`
@@ -168,8 +158,8 @@ const TituloServico = styled.Text`
 `;
 
 const ImagemPrincipal = styled.Image`
-  width: 35%;
-  height: 94.5%;
+  width: 110;
+  height: 127;
   border-radius: 15;
 `;
 
@@ -181,19 +171,13 @@ const ImagemMini = styled.Image`
 `;
 
 const ConteudoItem = styled.View`
-  flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 80%;
 `;
 
 const ConteudoBotoes = styled.View`
-  flex: 1;
   flex-direction: row-reverse;
-  flex-wrap: wrap;
-  height: 20%;
-  padding-top: 3%;
-  justify-content: space-between;
+  height: 60;
 `;
 
 const Estrela = styled(Icon)`

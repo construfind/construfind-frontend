@@ -41,18 +41,6 @@ const ServicosContratante = ( props ) => {
   );
 }
 
-const Container = styled.View`
-  width: 90%;
-  align-self: center;
-  height: 80%;
-`;
-
-const TitleText = styled.Text`
-  font-family: ${FONTS.semiBold};
-  font-size: 20;
-  color: ${COLORS.black};
-`;
-
 const AddServiceButton = styled.TouchableOpacity`
   border-radius: 20;
   width: 65;
@@ -64,8 +52,17 @@ const AddServiceButton = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-const Item = styled.Text`
+const Container = styled.View`
+  width: 90%;
+  height: 80%;
+  align-self: center;
+  border-radius: 20;
+`;
+
+const TitleText = styled.Text`
+  font-family: ${FONTS.semiBold};
   font-size: 20;
+  color: ${COLORS.black};
 `;
 
 const ServiceList = styled.FlatList`
@@ -75,9 +72,9 @@ const ServiceList = styled.FlatList`
 
 const TitleAdd = styled.View`
   flex-direction: column;
-  height: 68;
   justify-content: center;
   background-color: ${COLORS.background};
+  height: 80;
 `;
 
 export default ServicosContratante;
