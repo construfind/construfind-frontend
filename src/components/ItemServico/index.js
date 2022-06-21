@@ -275,91 +275,6 @@ const ButtonEdit = styled.TouchableOpacity`
   height: 45px;
 `;
 
-const ButtonText = styled.Text`  
-  font-family: ${FONTS.semiBold};
-  font-size: 18;
-  color: #0C0C0C;
-  align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
-`;
-
-const Container = styled.View`
-  flex: 1;
-  width: 100%;
-  align-self: center;
-  background-color: ${COLORS.white};
-  margin-top: 15;
-  border-radius: 15;
-  padding: 3%;
-  flex-direction: column;
-`;
-
-const NomeTipo = styled.View`
-  flex-direction: column;
-`;
-
-const Avaliacao = styled.View`
-justify-content: space-between;
-  flex-direction: row;
-`;
-
-const Fotos = styled.View`
-  flex-direction: row;
-  margin-top: 4%;
-  justify-content: space-between;
-`;
-
-const ColunaInfos = styled.View`
-  width: 65%;
-  flex-direction: column;
-  padding: 3%;
-`;
-
-const NomeContratante = styled.Text`
-  font-family: ${FONTS.medium};
-  font-size: 15;
-  color: ${COLORS.gray};
-`;
-
-const TituloServico = styled.Text`
-  font-family: ${FONTS.medium};
-  font-size: 16;
-  color: ${COLORS.textColor};
-`;
-
-const ImagemPrincipal = styled.Image`
-  width: 35%;
-  height: 94.5%;
-  border-radius: 15;
-`;
-
-const ImagemMini = styled.Image`
-  width: 45;
-  height: 45;
-  border-radius: 10;
-  align-self: flex-start;
-`;
-
-const ConteudoItem = styled.View`
-  flex: 1;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 80%;
-`;
-
-const ConteudoBotoes = styled.View`
-  flex: 1;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: 20%;
-  padding-top: 3%;
-  justify-content: space-between;
-`;
-
-const Estrela = styled(Icon)`
-`;
-
 const DeleteServico = styled.TouchableOpacity`
   width: 45;
   align-items: center;
@@ -378,6 +293,77 @@ const UpdateServico = styled.TouchableOpacity`
   border-color: ${COLORS.blue};
   border: solid ${COLORS.blue};
   height: 45;
+`;
+
+const ButtonText = styled.Text`  
+  font-family: ${FONTS.semiBold};
+  font-size: 18;
+  color: #0C0C0C;
+  align-self: center;
+`;
+
+const Container = styled.View`
+  border-radius: 20;
+  padding: 2%;
+  background-color: ${COLORS.white};
+  margin-bottom: 15;
+`;
+
+const NomeTipo = styled.View`
+`;
+
+const Avaliacao = styled.View`
+  justify-content: space-between;
+  flex-direction: row;
+`;
+
+const Fotos = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const ColunaInfos = styled.View`
+  width: 60%;
+  margin: auto;
+`;
+
+const NomeContratante = styled.Text`
+  font-family: ${FONTS.medium};
+  font-size: 15;
+  color: ${COLORS.gray};
+`;
+
+const TituloServico = styled.Text`
+  font-family: ${FONTS.medium};
+  font-size: 16;
+  color: ${COLORS.textColor};
+`;
+
+const ImagemPrincipal = styled.Image`
+  width: 110;
+  height: 127;
+  border-radius: 15;
+`;
+
+const ImagemMini = styled.Image`
+  width: 45;
+  height: 45;
+  border-radius: 10;
+  align-self: flex-start;
+`;
+
+const ConteudoItem = styled.View`
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+const ConteudoBotoes = styled.View`
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  height: 60;
+`;
+
+const Estrela = styled(Icon)`
 `;
 
 export default ItemServico;

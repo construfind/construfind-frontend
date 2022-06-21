@@ -9,10 +9,10 @@ import { Container, WelcomeHeader, ServicosPrestador, ServicosPrestadorAndamento
 const Inicio = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingDataList, setIsLoadingDataList] = useState(false);
-  const [dataServicos, setDataServicos] = useState([{}]);
+  const [dataServicos, setDataServicos] = useState(null);
 
   const [isLoadingDataListAndamento, setIsLoadingDataListAndamento] = useState(false);
-  const [dataServicosAndamento, setDataServicosAndamento] = useState([{}]);
+  const [dataServicosAndamento, setDataServicosAndamento] = useState(null);
 
   const token = useSelector(({ authenticate: { token } }) => token);
   const { nomeCompleto } = useSelector(({ authenticate: { user } }) => user);
@@ -20,11 +20,12 @@ const Inicio = () => {
   SplashScreen.hide();
   
   useEffect(() =>{
+    setIsLoading(true);
     handleData();
-    handleDataAndamento();  
+    handleDataAndamento();
   },[])
 
-  const handleData = async () => {
+  const handleData = async () => {    
     const url = 'api/Servico/service-read';
     const config = { headers: { Authorization: `Bearer ${token}` } }
   
@@ -34,7 +35,8 @@ const Inicio = () => {
         setDataServicos(data);
       })
       .catch((err) => {
-          console.log("Error Buscar: ", err);
+        setDataServicos(null);
+        console.log("Error Buscar: ", err);
       })
       .finally(() => {setIsLoading(false); setIsLoadingDataList(false)})
   };
@@ -48,8 +50,9 @@ const Inicio = () => {
       .then(async ( { data } ) => {
         setDataServicosAndamento(data);
       })
-      .catch((err) => {
-          console.log("Error Buscar: ", err);
+      .catch((data) => {
+        setDataServicosAndamento(null);
+        console.log("Error Buscar: " + data);
       })
       .finally(() => {setIsLoading(false); setIsLoadingDataListAndamento(false)})
   };
@@ -59,6 +62,7 @@ const Inicio = () => {
     setIsLoading(false);
     handleDataAndamento();
     handleData();
+    console.log(dataServicos)
   }
 
   const refreshDataAndamento = () => {
@@ -75,15 +79,13 @@ const Inicio = () => {
                          onRefresh={refreshData}
                          refreshing={isLoadingDataList}
                          loadingAnimation={(state) => setIsLoading(state)}
-                         refreshDataAfter={() => refreshData()}
-                         />
+                         refreshDataAfter={() => refreshData()}/>
 
       <ServicosPrestadorAndamento data={dataServicosAndamento}
                                   onRefresh={refreshDataAndamento}
                                   refreshing={isLoadingDataListAndamento}
                                   loadingAnimation={(state) => setIsLoading(state)}
-                                  refreshDataAfter={() => refreshDataAndamento()}
-                                  /> 
+                                  refreshDataAfter={() => refreshDataAndamento()}/> 
 
       <Loader loading={isLoading} />
     </Container>
