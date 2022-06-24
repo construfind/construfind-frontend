@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, StyleSheet, View, BackHandler, StatusBar, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { Text, StyleSheet, View, StatusBar, Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useToast } from 'native-base';
 import { useDispatch } from 'react-redux';
 import NetInfo from '@react-native-community/netinfo';
@@ -30,11 +30,9 @@ const Login = ({ navigation, route, options, back }) => {
   }
 
   useEffect(() => {
-    const backHandler = BackHandler.addEventListener('hardwareBackPress', BackHandler.exitApp)
     const subscribe = NetInfo.addEventListener(({ isConnected }) => setIsOnline(isConnected))
 
     return () => {
-      backHandler.remove()
       subscribe()
     }
   }, [])

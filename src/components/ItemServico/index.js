@@ -361,6 +361,8 @@ const ConteudoBotoes = styled.View`
   flex-direction: row-reverse;
   justify-content: space-between;
   height: 60;
+  margin-top: 2%;
+  margin-bottom: -3%;
 `;
 
 const Estrela = styled(Icon)`

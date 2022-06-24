@@ -175,7 +175,9 @@ const ConteudoItem = styled.View`
 
 const ConteudoBotoes = styled.View`
   flex-direction: row-reverse;
-  height: 60;
+  height: 60;  
+  margin-top: 2%;
+  margin-bottom: -3%;
 `;
 
 const Estrela = styled(Icon)`

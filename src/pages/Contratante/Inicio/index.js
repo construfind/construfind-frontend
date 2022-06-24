@@ -10,6 +10,7 @@ import styled from 'styled-components/native';
 import { api } from '../../../services/api';
 import { Container, WelcomeHeader, ServicosContratante, Loader, InputAuth } from '../../../components';
 import { FONTS, COLORS } from '../../../assets/constants';
+import { ValidaResponse } from '../../../utils/ResponseValidators';
 
 const Inicio = () => {
   const dispatch = useDispatch();  
@@ -38,6 +39,7 @@ const Inicio = () => {
     await api
       .get(url, config)
       .then(async ( { data } ) => {
+        console.log("Sucesso Buscar: ", data);
         setDataServicos(data);
       })
       .catch((err) => {
@@ -91,7 +93,7 @@ const Inicio = () => {
           console.log("Error alterar: ", err);
           showMessage({
             message: "Erro ao criar o serviço!",
-            description: "Error",
+            description: ValidaResponse(err.response.data.errors),
             type: "danger",
             duration: 2350,
             icon: "auto"
@@ -115,12 +117,12 @@ const Inicio = () => {
                            btnAddService={(state) => setIsModalVisible(state)}
                            />
 
-
-
       <Modal testID={"ModalAddService"}
              isVisible={isModalVisible}
              style={{
-              position:'absolute'
+              position:'absolute',
+              marginLeft: 15,
+              marginRight: 'auto'
              }}
              onBackdropPress={() => setIsModalVisible(false)}>
 
@@ -155,7 +157,7 @@ const Inicio = () => {
                       value={dsServico}
                       maxLength={1000} 
                       editable={true}
-                      height={200}
+                      height={130}
                       multiline={true}/>           
 
           <ButtonEdit onPress={() => handleAddService()}>
@@ -203,7 +205,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    height: 625
+    height: 450
   },
   button: {
     borderRadius: 20,
