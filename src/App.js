@@ -15,9 +15,7 @@ LogBox.ignoreLogs([
 ]);
 
 const construfindTheme = {
-  ...DefaultTheme,
   colors: {
-    ...DefaultTheme.colors,
     background: 'rgb(251, 251, 251)',
   },
 };

@@ -20,6 +20,14 @@ export const ValidaResponse = (valida) => {
       return valida.Senha[0];
     }else if(valida.SenhaConfirmacao){
       return valida.SenhaConfirmacao[0];
+    }else if(valida.Titulo){
+      return valida.Titulo[0];
+    }else if(valida.Local){
+      return valida.Local[0];
+    }else if(valida.TipoServico){
+      return valida.TipoServico[0];
+    }else if(valida.Descricao){
+      return valida.Descricao[0];
     }else{
       return "Não foi possível realizar a operação, tente novamente mais tarde."
     }

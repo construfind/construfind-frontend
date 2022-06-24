@@ -11,8 +11,8 @@ const LogoFooter = styled.Image`
   align-self: center;
   position: absolute;
   bottom: 0;
-  width: 40%;
-  height: 4%;
+  width: 190;
+  height: 40;
   margin-bottom: 3%;
 `;
 

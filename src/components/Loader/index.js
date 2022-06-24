@@ -41,12 +41,6 @@ const activityViewStyle = {
   elevation: 5
 }
 
-const lottieStyle = {
-  width: wp('10%'),
-  height: hp('10%'),
-  margin: wp('1%')
-}
-
 const Container = styled(View)`
   position: absolute;
   background-color: #000000aa;
@@ -54,6 +48,8 @@ const Container = styled(View)`
   left: 0;
   right: 0;
   bottom: 0;
+  height: 100%;
+  z-index: 50;
 `
 
 const ContentContainer = styled(View)`

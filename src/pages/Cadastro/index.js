@@ -218,11 +218,11 @@ const styles = StyleSheet.create({
 
 const ContainerSelect = styled.View`
   width: 100%;
-  height: 10%;
+  height: 68;
   align-self: center;
   flex-direction: row;
   border-radius: 12px;
-  border: 1px;
+  border: 2px;
   border-color: #F0D23F;
 `;
 

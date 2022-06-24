@@ -5,14 +5,24 @@ import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 
 import android.os.Bundle;
+import android.view.View;
 import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+    hideNavigationBar();
     SplashScreen.show(this);
     super.onCreate(null);
+  }
+
+  @Override
+  public void onWindowFocusChanged(boolean hasFocus) {
+      super.onWindowFocusChanged(hasFocus);
+      if (hasFocus) {
+          hideNavigationBar();
+      }
   }
 
   /**
@@ -45,5 +55,12 @@ public class MainActivity extends ReactActivity {
       reactRootView.setIsFabric(BuildConfig.IS_NEW_ARCHITECTURE_ENABLED);
       return reactRootView;
     }
+  }
+
+  private void hideNavigationBar() {
+    getWindow().getDecorView().setSystemUiVisibility(
+        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
   }
 }
